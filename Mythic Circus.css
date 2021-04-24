@@ -1,0 +1,506 @@
+/* card sizes: mini 600x825px, normal 825x1125px */
+
+/*GRID LAYOUT FORMATTING*/
+#GameAreaWrapper{
+	width: 95vw;
+	max-width: 1050px;
+	height: 95vh;
+	max-height: 790px;
+	background-color: rgb(123,0,95);
+	padding: 5px;
+	border-style: solid;
+	border-width: 2px;
+	display: grid;
+	grid-template: repeat(12, 1fr)/repeat(12, 1fr); /*12x12 grid of equally spaced items*/
+	position: relative;
+}
+#gameAreaCoverGridBox{
+	grid-area: 1/1/13/13;
+	background-color: rgba(256, 256, 256, 0.6);
+	z-index: 10;
+}
+#hireGridBox{
+	grid-area: 1/1/6/10;
+}
+#nonActivePlayerSummaryGridBox{
+	grid-area: 1/10/6/13;
+}
+#activePlayerGridBox{
+	grid-area: 6/1/13/10;
+	display: grid;
+	grid-template: repeat(12, 1fr)/repeat(12, 1fr);
+}
+#activePlayerInfoGridBox{
+	grid-area: 1/11/5/13;
+}
+#activePlayerInfoWrapper{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+#activePlayerName{
+	grid-area: 6/1/7/4;
+}
+#activePlayerLaborCount{
+	grid-area: 6/4/7/6;
+}
+#activePlayerPerfCount{
+	grid-area: 6/6/7/8;
+}
+#activePlayerVPCount{
+	grid-area: 6/8/7/10;
+}
+#activePlayerOnDeckGridBox{
+	grid-area: 1/1/5/11;
+}
+#activePlayerDeckGridBox{
+	grid-area: 5/11/9/13;
+}
+#activePlayerLaborGridBox{
+	grid-area: 5/1/9/11;
+}
+#activePlayerDiscardGridBox{
+	grid-area: 9/11/13/13;
+}
+#activePlayerHandGridBox{
+	grid-area: 9/1/13/11;
+}
+#activeTurnPhaseGridBox{
+	grid-area: 6/10/9/13;
+}
+#gameLogGridBox{
+	grid-area: 9/10/13/13;
+	z-index: 20; /*set above deselect div*/
+}
+#activePlayerMoveHandToOnDeck{
+	display: none; /*will toggle display to enable player to place cards on deck*/
+	grid-area: 7/1/9/8;
+	z-index: 20; /*will be above deselect div*/
+}
+#activePlayerMoveHandToLabor{
+	display: none; /*will toggle display to enable player to place cards on deck*/
+	grid-area: 9/1/11/8;
+	z-index: 20; /*will be above deselect div*/
+}
+#deselectMaskBox{
+	display: none;
+	grid-area: 1/1/13/13;
+	z-index: 10; /*will mask non active items below*/
+	background-color: gray;
+	opacity: 0.5;
+}
+.size100{
+	width: 100%;
+	height: 100%;
+}
+.gridBox{
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	border-style: solid;
+	border-width: 2px;
+}
+/*GRID LAYOUT FORMATTING*/
+
+/* MINI CARD DISPLAY FORMATTING */
+.miniDisplayImg{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+}
+
+.miniDisplayName{
+	margin: 0px;
+	background-color: rgba(256, 256, 256, 70%);
+	position: absolute;
+	top: 2px;
+	left: 2px;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: left;
+}
+
+.miniDisplayCost{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(226, 156, 12);
+	position: absolute;
+	top: 2px;
+	right: 2px;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+
+.miniDisplayPerf{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(94, 3, 0);
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+}
+
+.miniDisplayLabor{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(226, 156, 12);
+	position: absolute;
+	bottom: 2px;
+	left: 2px;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+
+.miniDisplayCost{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(226, 156, 12);
+	position: absolute;
+	top: 2px;
+	right: 2px;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+
+.miniDisplayIcon{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	top: 60%;
+	left: 40%;
+}
+/* MINI CARD DISPLAY FORMATTING */
+
+.hireAmount{
+	height: 20px;
+	width: 20px;
+	margin: 0px;
+	background-color: rgba(256, 0, 0, 1.0);
+	position: absolute;
+	bottom: 2px;
+	left: 45%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+
+/* FULL CARD DISPLAY FORMATTING */
+#fullPreviewContainer{
+	grid-area: 1/10/6/13;
+	z-index: 30;
+}
+.fullWrapper{
+	height: 100%;
+	width: 100%;
+	background-image: url("images/worn card background.png");
+	position: relative;
+	z-index: 30;
+}
+.fullDisplayImg{
+	width: 80%;
+	height: 40%;
+	background-color: white;
+	position: absolute;
+	left: 10%;
+	top: 15%;
+}
+
+.fullDisplayName{
+	margin: 0px;
+	background-color: rgba(256, 256, 256, 70%);
+	position: absolute;
+	top: 10px;
+	left: 10%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: left;
+}
+
+.fullDisplayCost{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(226, 156, 12);
+	position: absolute;
+	top: 10px;
+	right: 10%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+
+.fullDisplayPerf{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(94, 3, 0);
+	position: absolute;
+	bottom: 10px;
+	right: 10%;
+
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+}
+
+.fullDisplayLabor{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(226, 156, 12);
+	position: absolute;
+	bottom: 10px;
+	left: 10%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+
+.fullDisplayCost{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(226, 156, 12);
+	position: absolute;
+	top: 10px;
+	right: 10%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+
+.fullDisplayAbility{
+	margin: 0px;
+	background-color: rgba(256, 256, 256, 70%);
+	position: absolute;
+	top: 60%;
+	left: 10%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+/* FULL CARD DISPLAY FORMATTING */
+
+/*HIRE CARDS FORMATTING*/
+#hireContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: row-reverse wrap;
+
+}
+
+.hireSlotWrapper{
+	width: 19%;
+	height: 49%;
+	background-color: white;
+	border: 1px solid black;
+	position: relative;
+}
+/*HIRE CARDS FORMATTING*/
+
+/*ACTIVE PLAYER DISPLAY FORMATTING*/
+#activePlayerHandWrapper, .activePlayerDisplayWrapper{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+}
+.displayFlexColumn{
+	display: flex;
+	flex-flow: column;
+}
+.verticalScroll{
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+.logMessage{
+	margin: 1px;
+}
+#activePlayerDeckContainer, #activePlayerDiscardContainer{
+	position: relative;
+}
+.activePlayerCountNumber{
+	color: black;
+	background-color: white;
+	font-size: 25px;
+	text-align: center;
+	position: absolute;
+	top: 25%;
+	left: 40%;
+	z-index: 2;
+}
+.selected{
+	box-shadow:
+		inset 25px 25px rgb(0, 6, 95),
+		inset -25px -25px rgb(0, 6, 95);
+	z-index: 20;
+}
+.activePlayClick{
+	z-index: 20;
+	background-color: rgba(200, 200, 200, 0.6);
+	position: relative;
+	top: -100%;
+}
+.activeHandWrapper, .activeMiniWrapper{
+	height: 100px;
+	width: 100px;
+	border: 1px solid black;
+	margin: 0px 2px 0px 2px;
+	overflow: hidden;
+	position: relative;
+}
+.activeHandImg{
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+}
+.playerInfoText{
+	font-size: 20px;
+	vertical-align: middle; /*need to fix this*/
+	margin: 0px;
+	background-color: white;
+}
+
+/* REQUEST CONTAINER FORMATTING */
+.requestContainer{
+	width: 50%;
+	min-height: 35%;
+	position: absolute;
+	left: 20%;
+	top: 15%;
+	background-color: whitesmoke;
+	border: 3px solid black;
+	z-index: 30;
+}
+
+.buttonRight{
+	width: auto;
+	height: auto;
+	position: absolute;
+	right: 10%;
+	bottom: 20%;
+}
+.buttonLeft{
+	width: auto;
+	height: auto;
+	position: absolute;
+	left: 10%;
+	bottom: 20%;
+}
+
+.button1{
+	width: auto;
+	height: auto;
+	position: absolute;
+	left: 10%;
+	bottom: 10%;
+}
+.button2{
+	width: auto;
+	height: auto;
+	position: absolute;
+	right: 10%;
+	bottom: 10%;
+}
+.renderClose{
+	height: 20px;
+	width: 20px;
+	background-color: tomato;
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	z-index: 31;
+}
+.renderArrayContainer{
+	height: 450px;
+	width: 600px;
+	background-color: thistle;
+	position: absolute;
+	left: 15%;
+	top: 10%;
+	z-index: 30;
+	border: 3px solid black;
+}
+.renderClose .button1 .button2:hover{
+	cursor: pointer;
+}
+/* #renderArraySample{
+	height: 300px;
+	width: 450px;
+	background-color: thistle;
+	position: absolute;
+	left: 15%;
+	top: 10%;
+	z-index: 30;
+	border: 3px solid black;
+} */
+.renderArrayFlexContainer{
+	height: 50%;
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	position: absolute;
+	top: 25%;
+	overflow: auto;
+}
+.renderedHeader{
+	position: relative;
+	margin: 15px 0 0 15px;
+	font-size: 30px;
+}
+.redDiscardBorder{
+	border: 4px solid red;
+}
+.greenDiscardBorder{
+	border: 4px solid green;
+}
+#phoenixIndicator{
+	margin: 0px;
+	font-size: 20px;
+	position: absolute;
+	left: 25%;
+	bottom: 2%;
+	color: crimson;
+}
+.redHover :hover{
+	background-color: crimson;
+}
+.flexRow{
+	display: flex;
+	flex-flow: row;
+	justify-content: space-around;
+}
+.redFont{
+	color: crimson;
+}
+.greenFont{
+	color: greenyellow;
+}
