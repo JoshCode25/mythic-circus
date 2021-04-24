@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="Mythic Circus.css">
+    <title>Mythic Circus</title>
+</head>
+
+<body>
+   <!-- <script src="jquery-3.5.1.js"></script> -->
+    <script src="Mythic Circus.js" defer></script>
+
+	<div id="gameArea">
+		<p>Game Area</p>
+
+		<div id="hireCards">
+			
+			<table id="hireTable">
+
+				<th><H3>Hire Cards</H3></th>
+				<tr id="hireCardSlots"></tr>
+
+			</table>
+		</div>
+
+		<div id="cardDisplay">
+			<div class="displayCardInfo" id="displayCardName">Working Gnome</div>
+			<div class="displayCardInfo" id="displayCardCost">Hire Cost</div>
+			<div class="displayCardInfo" id="displayCardImageContainer">
+				<img id="displayCardImage" src="images/Working Gnome.png" height="100%" width="100%" alt="Try again">
+			</div>
+			<div class="displayCardInfo" id="displayCardAbility">Simply a Working Gnome</div>
+			<div class="displayCardInfo" id="displayCardLabor">Labor: 1</div>
+			<div class="displayCardInfo" id="displayCardPerf">Perf: -</div>
+		</div>
+
+		<div id="activePlayer">
+
+			<table id="activePlayerTable">
+
+				<th id="activePlayerHeader" colspan="2" onclick="changeActivePlayer()">player1</th>
+				<tr>
+					<td style="height:25px" onclick="activePlayer.displayPlayerAttributes()">Player Resources</td>
+					<td onclick="gameState.beginPlayPhase()">Begin Play Phase</td>
+					<!-- <td id="activePlayerHand" onclick="console.log(activePlayer.hand);">Hand: 0</td> -->
+				</tr>
+				<tr>
+					<!-- CAN'T HAVE DIV BEFORE TD -->
+					<div id="activePlayerOnDeckTableWrap" onclick="activePlayer.moveHandToOnDeck(selectedObjectIndex, 'activePlayerHand', 'activePlayerOnDeck')">
+						<td id="activePlayerOnDeckTable" class="pTableTd">
+							<table> <!--On Deck Table-->
+
+								<tr>
+									<td id="activePlayerOnDeck" colspan="3" onclick="activePlayer.displayOnDeck()">On Deck: 0</td>
+								</tr>
+								<tr>
+									<!-- <td onclick="activePlayer.moveHandToOnDeck(0, 'activePlayerHand', 'activePlayerOnDeck')">Add Perf.</td> -->
+									<td onclick="activePlayer.activateInjure('td.activeOnDeckDisplay')">Injure Perf.</td>
+									<!-- <td onclick="activePlayer.moveOnDeckToDiscard(0, 'activePlayerOnDeck', 'activePlayerDiscard')">Injure Perf.</td> -->
+									<td onclick="activePlayer.clearOnDeckToDiscard('activePlayerOnDeck', 'activePlayerDiscard')">Clear Perf.</td>
+								</tr>
+								<tr id="activePlayerOnDeckDisplay" class="playerDisplay">Active Player On Deck Display</tr>
+
+							</table>
+						</td>
+					</div>	
+					<td class="pTableTd" id="activePlayerDeck" onclick="activePlayer.drawFromDeck(1, 'activePlayerDeck', 'activePlayerHand', 'activePlayerDiscard')">Deck: 10</td>
+				</tr>
+				<tr>
+					<!-- CAN'T HAVE DIV BEFORE TD -->
+					<div id="activePlayerLaborTableWrap" onclick="activePlayer.moveHandToOnDeck(selectedObjectIndex, 'activePlayerHand', 'activePlayerLabor')">
+						<td id="activePlayerLaborTable" class="pTableTd">
+							<table> <!--Labor Area Table-->
+
+								<tr>
+									<td id="activePlayerLabor" colspan="2" onclick="activePlayer.displayLaborArea()">Labor Area: 0</td>
+								</tr>
+								<tr>
+									<!-- <td onclick="activePlayer.moveHandToLabor(0, 'activePlayerHand', 'activePlayerLabor')">Add Labor</td> -->
+									<td onclick="activePlayer.clearLaborToDiscard('activePlayerLabor', 'activePlayerDiscard')">Clear Labor</td>
+								</tr>
+								<tr id="activePlayerLaborDisplay" class="playerDisplay">Active Player Labor Display</tr>
+
+							</table>
+						</td>
+					</div>
+					<td class="pTableTd" id="activePlayerDiscard" onclick="activePlayer.moveHandToDiscard(activePlayer.hand.length-1, 'activePlayerHand', 'activePlayerDiscard')">Discard: 0</td>
+				</tr>	
+				<tr>
+					<td class="pTableTd" colspan="2">
+						<table> <!--Hand Table-->
+
+							<tr id="activePlayerHandDisplay" colspan="3" class="playerDisplay">Active Player Hand Display</tr>
+							<tr>
+								<td id="activePlayerHand" colspan="3" onclick="console.log(activePlayer.hand)">Hand: 0</td>
+							</tr>
+
+						</table>
+					</td>
+				</tr>	
+			
+			</table>	
+
+
+			<!-- <div id="p1PerfArea"></div>
+			<div id="p1LaborArea"></div>
+			<div id="p1Deck"></div>
+			<div id="p1Discard" onclick="activePlayer.discardFromHand(1)"></div>
+			<div id="p1Hand"></div>
+			<div id="p1Resources">
+				<div id="p1Labor"></div>
+				<div id="p1Perf"></div>
+				<div id="p1Points"></div>
+			</div>	 -->
+		</div>
+
+
+		<div id="pool">
+			<div id="pointTokens"></div>
+				<div id="1ptToken"></div>
+				<div id="3ptToken"></div>
+			</div>
+			<div id="perfMediocre"></div>
+			<div id="perfMemorable"></div>
+			<div id="perfStellar"></div>
+			<div id="perfInstantClassic"></div>
+		</div>			
+
+
+</body>
+</html>
