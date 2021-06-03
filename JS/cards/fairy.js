@@ -12,7 +12,7 @@ export default class Fairy extends Card {
 		this.enablePerf = true;
 		this.cost = 4;
 		this.ability = `Perf: You may play a card from your discard On Stage with a hire cost less than ${this.playCostLimit}`;
-		this.image = "images/Fairy.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678125/Mythic%20Circus/Fairy.png";
 		this.playCostLimit = 4;
 
 		this.totalInjured = 0;

@@ -12,7 +12,7 @@ export default class Faun extends Card {
 		this.enablePerf = true;
 		this.cost = 3;
 		this.ability = "Gains +1 Perf for each other active Performer";
-		this.image = "images/Faun.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678127/Mythic%20Circus/Faun.png";
 	}
 
 	sentToDiscard() {

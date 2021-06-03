@@ -13,7 +13,7 @@ export default class Unicorn extends Card {
 		this.enablePerf = true;
 		this.cost = 6;
 		this.ability = "Perf: choose another player to discard all active Unicorns";
-		this.image = "images/Unicorn.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678131/Mythic%20Circus/Unicorn.png";
 	}
 
 	playOnDeck(){

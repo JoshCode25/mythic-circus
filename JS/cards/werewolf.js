@@ -10,7 +10,7 @@ export default class Werewolf extends Card {
 		this.enablePerf = true;
 		this.cost = 3;
 		this.ability = "Perf: Attack (1)";
-		this.image = "images/Werewolf.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678132/Mythic%20Circus/Werewolf.png";
 		this.attack = 1;
 
 		this.totalLabored = 0;

@@ -12,7 +12,7 @@ export default class Goblin extends Card {
 		this.enablePerf = true;
 		this.cost = 2;
 		this.ability = "Perf: may Discard (1), then Draw (1)";
-		this.image = "images/Goblin.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678128/Mythic%20Circus/Goblin.png";
 
 		this.totalLabored = 0;
 		this.totalInjured = 0;

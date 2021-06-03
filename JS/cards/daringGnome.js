@@ -10,7 +10,7 @@ export default class DaringGnome extends Card{ //onStart - sets up Daring Gnome 
 		this.enablePerf = true;
 		this.cost = 0;
 		this.ability = "He's a little off his rocker";
-		this.image = "images/Daring Gnome.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678073/Mythic%20Circus/Daring%20Gnome.png";
 
 		this.totalLabored = 0;
 		this.totalInjured = 0;

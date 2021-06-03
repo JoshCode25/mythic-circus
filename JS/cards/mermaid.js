@@ -13,7 +13,7 @@ export default class Mermaid extends Card {
 		this.enablePerf = true;
 		this.cost = 3;
 		this.ability = "Perf: You may place a card from your discard on top of your deck";
-		this.image = "images/Mermaid.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678132/Mythic%20Circus/Mermaid.png";
 
 		this.totalInjured = 0;
 		this.totalOnDeck = 0;

@@ -10,7 +10,7 @@ export default class MischievousGnome extends Card { //onStart - sets up Mischie
 		this.enablePerf = true;
 		this.cost = 0;
 		this.ability = "Attack (1)";
-		this.image = "images/Mischievous Gnome.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678128/Mythic%20Circus/Mischevious%20Gnome.png";
 		this.attack = 1;
 
 		this.totalInjured = 0;

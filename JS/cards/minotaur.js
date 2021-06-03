@@ -10,7 +10,7 @@ export default class Minotaur extends Card {
 		this.enablePerf = true;
 		this.cost = 4;
 		this.ability = "Resilient: requires 2 injuries to be discarded";
-		this.image = "images/Minotaur.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678128/Mythic%20Circus/Minotaur.png";
 		this.injured = false;
 		this.icon = "images/icons/Minotaur Shield.png";
 

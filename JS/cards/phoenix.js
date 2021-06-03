@@ -12,7 +12,7 @@ export default class Phoenix extends Card {
 		this.enablePerf = true;
 		this.cost = 5;
 		this.ability = "At the start of your turn, you may discard a card to return Phoenix from your discard to your hand";
-		this.image = "images/Phoenix.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678132/Mythic%20Circus/Phoenix.png";
 
 		this.totalLabored = 0;
 		this.totalInjured = 0;
