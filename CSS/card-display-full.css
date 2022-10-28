@@ -1,0 +1,100 @@
+
+#fullPreviewContainer{
+	grid-area: 1/10/6/13;
+	z-index: 30;
+}
+.fullWrapper{
+	height: 100%;
+	width: 100%;
+	background-image: url("images/worn card background.png");
+	position: relative;
+	z-index: 30;
+}
+.fullDisplayImg{
+	width: 80%;
+	height: 40%;
+	background-color: white;
+	position: absolute;
+	left: 10%;
+	top: 15%;
+}
+
+.fullDisplayName{
+	margin: 0px;
+	background-color: rgba(256, 256, 256, 70%);
+	position: absolute;
+	top: 10px;
+	left: 10%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: left;
+}
+
+.fullDisplayCost{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(226, 156, 12);
+	position: absolute;
+	top: 10px;
+	right: 10%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+
+.fullDisplayPerf{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(94, 3, 0);
+	position: absolute;
+	bottom: 10px;
+	right: 10%;
+
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+}
+
+.fullDisplayLabor{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(226, 156, 12);
+	position: absolute;
+	bottom: 10px;
+	left: 10%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+
+.fullDisplayCost{
+	margin: 0px;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(226, 156, 12);
+	position: absolute;
+	top: 10px;
+	right: 10%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}
+
+.fullDisplayAbility{
+	margin: 0px;
+	background-color: rgba(256, 256, 256, 70%);
+	position: absolute;
+	top: 60%;
+	left: 10%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}

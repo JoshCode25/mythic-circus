@@ -1,0 +1,102 @@
+
+#GameAreaWrapper{
+	width: 95vw;
+	max-width: 1050px;
+	height: 95vh;
+	max-height: 790px;
+	background-color: rgb(123,0,95);
+	padding: 5px;
+	border-style: solid;
+	border-width: 2px;
+	display: grid;
+	grid-template: repeat(12, 1fr)/repeat(12, 1fr); /*12x12 grid of equally spaced items*/
+	position: relative;
+}
+#gameAreaCoverGridBox{
+	grid-area: 1/1/13/13;
+	background-color: rgba(256, 256, 256, 0.6);
+	z-index: 10;
+}
+#hireGridBox{
+	grid-area: 1/1/6/10;
+}
+#nonActivePlayerSummaryGridBox{
+	grid-area: 1/10/6/13;
+}
+#activePlayerGridBox{
+	grid-area: 6/1/13/10;
+	display: grid;
+	grid-template: repeat(12, 1fr)/repeat(12, 1fr);
+}
+#activePlayerInfoGridBox{
+	grid-area: 1/11/5/13;
+}
+#activePlayerInfoWrapper{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+#activePlayerName{
+	grid-area: 6/1/7/4;
+}
+#activePlayerLaborCount{
+	grid-area: 6/4/7/6;
+}
+#activePlayerPerfCount{
+	grid-area: 6/6/7/8;
+}
+#activePlayerVPCount{
+	grid-area: 6/8/7/10;
+}
+#activePlayerOnDeckGridBox{
+	grid-area: 1/1/5/11;
+}
+#activePlayerDeckGridBox{
+	grid-area: 5/11/9/13;
+}
+#activePlayerLaborGridBox{
+	grid-area: 5/1/9/11;
+}
+#activePlayerDiscardGridBox{
+	grid-area: 9/11/13/13;
+}
+#activePlayerHandGridBox{
+	grid-area: 9/1/13/11;
+}
+#activeTurnPhaseGridBox{
+	grid-area: 6/10/9/13;
+}
+#gameLogGridBox{
+	grid-area: 9/10/13/13;
+	z-index: 20; /*set above deselect div*/
+}
+#activePlayerMoveHandToOnDeck{
+	display: none; /*will toggle display to enable player to place cards on deck*/
+	grid-area: 7/1/9/8;
+	z-index: 20; /*will be above deselect div*/
+}
+#activePlayerMoveHandToLabor{
+	display: none; /*will toggle display to enable player to place cards on deck*/
+	grid-area: 9/1/11/8;
+	z-index: 20; /*will be above deselect div*/
+}
+#deselectMaskBox{
+	display: none;
+	grid-area: 1/1/13/13;
+	z-index: 10; /*will mask non active items below*/
+	background-color: gray;
+	opacity: 0.5;
+}
+.size100{
+	width: 100%;
+	height: 100%;
+}
+.gridBox{
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	border-style: solid;
+	border-width: 2px;
+}

@@ -1,0 +1,30 @@
+
+#hireContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: row-reverse wrap;
+
+}
+
+.hireSlotWrapper{
+	width: 19%;
+	height: 49%;
+	background-color: white;
+	border: 1px solid black;
+	position: relative;
+}
+
+.hireAmount{
+	height: 20px;
+	width: 20px;
+	margin: 0px;
+	background-color: rgba(256, 0, 0, 1.0);
+	position: absolute;
+	bottom: 2px;
+	left: 45%;
+
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	text-align: center;
+}

@@ -1,0 +1,115 @@
+
+.requestContainer{
+	width: 50%;
+	min-height: 35%;
+	position: absolute;
+	left: 20%;
+	top: 15%;
+	background-color: whitesmoke;
+	border: 3px solid black;
+	z-index: 30;
+}
+
+.buttonRight{
+	width: auto;
+	height: auto;
+	position: absolute;
+	right: 10%;
+	bottom: 20%;
+}
+.buttonLeft{
+	width: auto;
+	height: auto;
+	position: absolute;
+	left: 10%;
+	bottom: 20%;
+}
+
+.button1{
+	width: auto;
+	height: auto;
+	position: absolute;
+	left: 10%;
+	bottom: 10%;
+}
+.button2{
+	width: auto;
+	height: auto;
+	position: absolute;
+	right: 10%;
+	bottom: 10%;
+}
+.renderClose{
+	height: 20px;
+	width: 20px;
+	background-color: tomato;
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	z-index: 31;
+}
+.renderArrayContainer{
+	height: 450px;
+	width: 600px;
+	background-color: thistle;
+	position: absolute;
+	left: 15%;
+	top: 10%;
+	z-index: 30;
+	border: 3px solid black;
+}
+.renderClose .button1 .button2:hover{
+	cursor: pointer;
+}
+/* #renderArraySample{
+	height: 300px;
+	width: 450px;
+	background-color: thistle;
+	position: absolute;
+	left: 15%;
+	top: 10%;
+	z-index: 30;
+	border: 3px solid black;
+} */
+.renderArrayFlexContainer{
+	height: 50%;
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	position: absolute;
+	top: 25%;
+	overflow: auto;
+}
+.renderedHeader{
+	position: relative;
+	margin: 15px 0 0 15px;
+	font-size: 30px;
+}
+.redDiscardBorder{
+	border: 4px solid red;
+}
+.greenDiscardBorder{
+	border: 4px solid green;
+}
+#phoenixIndicator{
+	margin: 0px;
+	font-size: 20px;
+	position: absolute;
+	left: 25%;
+	bottom: 2%;
+	color: crimson;
+}
+.redHover :hover{
+	background-color: crimson;
+}
+.flexRow{
+	display: flex;
+	flex-flow: row;
+	justify-content: space-around;
+}
+.redFont{
+	color: crimson;
+}
+.greenFont{
+	color: greenyellow;
+}
