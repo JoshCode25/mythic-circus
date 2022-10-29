@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="Mythic Circus.css">
+    <!-- <link rel="stylesheet" href="Mythic Circus.css"> -->
+	<link rel="stylesheet" href="./CSS/card-display-full.css">
+	<link rel="stylesheet" href="./CSS/card-display-hire.css">
+	<link rel="stylesheet" href="./CSS/card-display-mini.css">
+	<link rel="stylesheet" href="./CSS/grid-layout.css">
+	<link rel="stylesheet" href="./CSS/player-display-active.css">
+	<link rel="stylesheet" href="./CSS/request-container.css">
     <title>Mythic Circus</title>
 </head>
 
@@ -31,10 +37,12 @@
 			</div>
 
 			<div id="activePlayerOnDeckGridBox">
+				<div id="activePlayeronDeckLabel" class="activePlayerLabel">ON DECK</div>
 				<div id="activePlayerOnDeckWrapper" class="gridBox activePlayerDisplayWrapper"></div>
 			</div>
 
 			<div id="activePlayerLaborGridBox">
+				<div id="activePlayerLaborLabel" class="activePlayerLabel">LABOR</div>
 				<div id="activePlayerLaborWrapper" class="gridBox activePlayerDisplayWrapper"></div>
 			</div>
 
@@ -60,11 +68,11 @@
 		</div>
 
 		<div id="activeTurnPhaseGridBox" class="gridBox">
-			<div id="activeTurnPhaseWrapper">
-				<div id="activeTurnPhasePerform">Perform</div>
-				<div id="activeTurnPhasePlay">Play</div>
-				<div id="activeTurnPhaseHire">Hire</div>
-				<div id="activeTurnPhaseEnd">End</div>
+			<div id="activeTurnPhaseWrapper" class="displayFlexColumn flexCenter">
+				<div id="activeTurnPhasePerform" class="activePlayerPhaseButton">Perform</div>
+				<div id="activeTurnPhasePlay" class="activePlayerPhaseButton activePlayerPhaseButton-Current">Play</div>
+				<div id="activeTurnPhaseHire" class="activePlayerPhaseButton activePlayerPhaseButton-Next">Hire</div>
+				<div id="activeTurnPhaseEnd" class="activePlayerPhaseButton">End</div>
 			</div>
 		</div>
 

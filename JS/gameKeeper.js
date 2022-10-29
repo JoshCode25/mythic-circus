@@ -328,6 +328,11 @@ const gameKeeper = {
             gameKeeper.gameLog(`Begin ${gameKeeper.turnPhase} Phase`);
             gameKeeper.countPerf(gameKeeper.activePlayer, "activePlayerPerfCount");
 
+            let currentPhaseButton = document.getElementById("activeTurnPhasePerform");
+            let nextPhaseButton = document.getElementById("activeTurnPhasePlay");
+            currentPhaseButton.classList.add("activePlayerPhaseButton-Current");
+            nextPhaseButton.classList.add("activePlayerPhaseButton-Next")
+
             artist.renderChoiceDialogue("perfRequestContainer", "Perform?", "Perform", "Pass");
             let perfRequestContainer = document.getElementById("perfRequestContainer");
             let perfButton = perfRequestContainer.querySelector(".buttonLeft");

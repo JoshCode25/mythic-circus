@@ -11,6 +11,9 @@
 	display: flex;
 	flex-flow: column;
 }
+.flexCenter{
+	align-items: center;
+}
 .verticalScroll{
 	height: 100%;
 	width: 100%;
@@ -62,4 +65,32 @@
 	vertical-align: middle; /*need to fix this*/
 	margin: 0px;
 	background-color: white;
+}
+
+.activePlayerLabel {
+	font-size: 40px;
+	position: absolute;
+	color: rgba(0, 0, 0, 0.4);
+	width: 40%;
+    left: 30%;
+}
+
+.activePlayerPhaseButton {
+	color: rgb(60, 60, 60);
+	font-size: 20px;
+	margin: 5px 0;
+}
+
+.activePlayerPhaseButton-Current {
+	color: black;
+	font-weight: bold;
+}
+
+.activePlayerPhaseButton-Next {
+	color: green;
+	font-weight: bold;
+}
+
+.activePlayerPhaseButton-Next:hover {
+	cursor: pointer;
 }
