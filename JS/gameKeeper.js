@@ -355,6 +355,38 @@ const gameKeeper = {
 
         },
 
+        updateAvailableHireDisplay() {
+            console.log(gameKeeper);
+            //remove previous available hires to avoid confusion
+            let existingHireAvailable = document.getElementsByClassName('hireAvailable');
+            if (existingHireAvailable.length > 0) {
+
+                existingHireAvailable.forEach(existingHire => {
+                    existingHire.classList.remove('hireAvailable');
+                });
+            }
+            console.log(gameKeeper.hireSlots);
+            //add green border around available hires
+            let availableHires = gameKeeper.hireSlots.filter(hireSlot => {
+                let availableHire = false;
+                console.log(hireSlot);
+                let hireCost = hireSlot[0].cost;
+                let hireName = hireSlot[0].name;
+
+                let canAfford = (hireCost <= gameKeeper.activePlayer.laborPoints) ? true : false;
+                let hasntHired = !gameKeeper.hiredLog.some(hiredName => hiredName === hireName);
+                if (canAfford && hasntHired) {
+                    availableHire = true;
+                }
+                
+                return availableHire;
+            })
+
+            availableHires.forEach(hireSlot => {
+                document.getElementById(hireSlot[0].name).classList.add('hireAvailable');
+            })
+        },
+
         beginPerformPhase() {
 
             gameKeeper.turnPhase = 'Perform';
@@ -471,6 +503,7 @@ const gameKeeper = {
             gameKeeper.turnPhase = 'Hire';
             gameKeeper.gameLog(`Begin ${gameKeeper.turnPhase} Phase`);
             gameKeeper.updateTurnPhaseDisplay();
+            gameKeeper.updateAvailableHireDisplay();
 
             let endPhaseClick = document.getElementById("activeTurnPhaseEnd");
             endPhaseClick.addEventListener("click", gameKeeper.endHirePhase);	
@@ -931,6 +964,8 @@ const gameKeeper = {
                 } else {
                     console.log("gameKeeper.hire() - error");
                 }
+
+                gameKeeper.updateAvailableHireDisplay();
             }
 
         },
