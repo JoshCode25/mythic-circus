@@ -322,16 +322,50 @@ const gameKeeper = {
             }
         },
 
+        updateTurnPhaseDisplay() {
+
+            //remove existing button formatting
+            let existingCurrent = document.querySelector('.activePlayerPhaseButton-Current');
+            console.log(existingCurrent);
+            existingCurrent.classList.remove('activePlayerPhaseButton-Current');
+
+            if (gameKeeper.turnPhase !== 'End') {
+                
+                let existingNext = document.querySelector('.activePlayerPhaseButton-Next');
+                console.log(existingNext);
+                existingNext.classList.remove('activePlayerPhaseButton-Next');
+            }
+
+            //update new button formatting
+            let turnPhaseIds = ['Perform', 'Play', 'Hire', 'End'];
+            let turnPhaseNumber = turnPhaseIds.indexOf(gameKeeper.turnPhase);
+
+            let currentPhase = document.getElementById(`activeTurnPhase${turnPhaseIds[turnPhaseNumber]}`);
+            currentPhase.classList.add('activePlayerPhaseButton-Current');
+            console.log(currentPhase);
+
+            if ( turnPhaseNumber < 3) {
+                
+                let nextPhase = document.getElementById(`activeTurnPhase${turnPhaseIds[turnPhaseNumber+1]}`);
+                nextPhase.classList.add('activePlayerPhaseButton-Next');
+                console.log(nextPhase);
+            }
+
+            console.log(turnPhaseIds[turnPhaseNumber], turnPhaseNumber);
+
+        },
+
         beginPerformPhase() {
 
             gameKeeper.turnPhase = 'Perform';
             gameKeeper.gameLog(`Begin ${gameKeeper.turnPhase} Phase`);
             gameKeeper.countPerf(gameKeeper.activePlayer, "activePlayerPerfCount");
 
-            let currentPhaseButton = document.getElementById("activeTurnPhasePerform");
-            let nextPhaseButton = document.getElementById("activeTurnPhasePlay");
-            currentPhaseButton.classList.add("activePlayerPhaseButton-Current");
-            nextPhaseButton.classList.add("activePlayerPhaseButton-Next")
+            gameKeeper.updateTurnPhaseDisplay();
+            // let currentPhaseButton = document.getElementById("activeTurnPhasePerform");
+            // let nextPhaseButton = document.getElementById("activeTurnPhasePlay");
+            // currentPhaseButton.classList.add("activePlayerPhaseButton-Current");
+            // nextPhaseButton.classList.add("activePlayerPhaseButton-Next")
 
             artist.renderChoiceDialogue("perfRequestContainer", "Perform?", "Perform", "Pass");
             let perfRequestContainer = document.getElementById("perfRequestContainer");
@@ -395,6 +429,7 @@ const gameKeeper = {
 
             gameKeeper.turnPhase = 'Play';
             gameKeeper.gameLog(`Begin ${gameKeeper.turnPhase} Phase`);
+            gameKeeper.updateTurnPhaseDisplay();
 
             for(let i = 0; i < gameKeeper.activePlayer.hand.length; i++) {
                 let cardMark = gameKeeper.activePlayer.hand[i].mark;
@@ -435,6 +470,7 @@ const gameKeeper = {
 
             gameKeeper.turnPhase = 'Hire';
             gameKeeper.gameLog(`Begin ${gameKeeper.turnPhase} Phase`);
+            gameKeeper.updateTurnPhaseDisplay();
 
             let endPhaseClick = document.getElementById("activeTurnPhaseEnd");
             endPhaseClick.addEventListener("click", gameKeeper.endHirePhase);	
@@ -463,6 +499,7 @@ const gameKeeper = {
         beginEndPhase(){
 
             gameKeeper.turnPhase = 'End';
+            gameKeeper.updateTurnPhaseDisplay();
 
             gameKeeper.activePlayer.clearLaborToDiscard();
             gameKeeper.activePlayer.clearHandToDiscard();
