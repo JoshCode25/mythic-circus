@@ -10,7 +10,7 @@ export default class Golem extends Card {
 		this.enablePerf = false;
 		this.cost = 3;
 		this.ability = "Draw (1)";
-		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678133/Mythic%20Circus/Golem.png";
+		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1667302102/Mythic%20Circus/Golem.png";
 
 		this.totalLabored = 0;
 	}
