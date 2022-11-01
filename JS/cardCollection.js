@@ -11,7 +11,7 @@ import Phoenix from './cards/phoenix.js';
 import Sphinx from './cards/sphinx.js';
 import Unicorn from './cards/unicorn.js';
 
-var cardCollection = [];
+let cardCollection = [];
 let cardsTrue = gameSetup.cardsTrue;
 let collectionIndex = 0;
 let listOwner = "CardList";
@@ -169,5 +169,8 @@ if(cardsTrue.includes("Unicorn")) {
     cardList.push(listCard);
 
 }
+let sortedCollection = cardCollection.sort((a, b) => {
+    return a[0].cost - b[0].cost;
+});
 
-export default cardCollection;
+export default sortedCollection;

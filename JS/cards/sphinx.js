@@ -10,7 +10,7 @@ export default class Sphinx extends Card {
 		this.enableLabor = true;
 		this.perf = 3;
 		this.enablePerf = true;
-		this.cost = 5;
+		this.cost = 6;
 		this.ability = "Perf: you may Draw (2) then discard (2)";
 		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678131/Mythic%20Circus/Sphinx.png";
 

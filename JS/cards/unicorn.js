@@ -11,7 +11,7 @@ export default class Unicorn extends Card {
 		this.enableLabor = true;
 		this.perf = 6;
 		this.enablePerf = true;
-		this.cost = 6;
+		this.cost = 5;
 		this.ability = "Perf: choose another player to discard all active Unicorns";
 		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678131/Mythic%20Circus/Unicorn.png";
 	}
