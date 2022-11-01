@@ -40,7 +40,7 @@ const gameKeeper = {
             gameKeeper.activePlayer.addGnomesToCardList();
 
             document.getElementById("activePlayerDiscardContainer").addEventListener("contextmenu", this.renderActiveDiscard);
-            document.getElementById("activePlayerName").addEventListener("click", function(){console.log(gameKeeper.activePlayer)});
+            document.getElementById("activePlayerName").addEventListener("click", function(){console.log(gameKeeper)});
             gameKeeper.createHireSlots(gameKeeper.hireSlots);
             gameKeeper.createNonActivePlayerSlots();
 
@@ -363,7 +363,7 @@ const gameKeeper = {
                 let hireName = hireSlot[0].name;
 
                 let canAfford = (hireCost <= gameKeeper.activePlayer.laborPoints) ? true : false;
-                let hasntHired = !gameKeeper.hiredLog.some(hiredName => hiredName === hireName);
+                let hasntHired = !gameKeeper.hiredLog.some(hiredName => hiredName.name === hireName);
                 if (canAfford && hasntHired) {
                     availableHire = true;
                 }
