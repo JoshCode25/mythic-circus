@@ -148,7 +148,7 @@ export default class Player { //onStart - creates class constructor for player o
 			this.deck.push(card);
 
 		}
-		console.log(this.deck);
+
 	}
 
 	displayPlayerAttributes() { //displays lengths of player arrays for prototyping
@@ -300,8 +300,6 @@ export default class Player { //onStart - creates class constructor for player o
 			this.laborArea.push(this.hand[index]);
 			this.hand.splice(index, 1);
 
-			console.log("Hand: " + this.hand.length);
-			console.log("Labor Area: " + this.laborArea.length);
 			gameKeeper.gameLog(`${this.laborArea[this.laborArea.length-1].name} sent to Labor`);
 
 			gameKeeper.deselect();
@@ -464,7 +462,6 @@ export default class Player { //onStart - creates class constructor for player o
 				this.deck[j] = temp;
 			}
 		}
-		console.log(this.deck); //displays deck after shuffling to check the order has been randomized
 
 	}
 

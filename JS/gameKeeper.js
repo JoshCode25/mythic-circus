@@ -39,9 +39,6 @@ const gameKeeper = {
             //add gnomes to cardList for preview reference
             gameKeeper.activePlayer.addGnomesToCardList();
 
-            console.log(gameSetup.cardList);
-
-            console.log(gameSetup.players);
             document.getElementById("activePlayerDiscardContainer").addEventListener("contextmenu", this.renderActiveDiscard);
             document.getElementById("activePlayerName").addEventListener("click", function(){console.log(gameKeeper.activePlayer)});
             gameKeeper.createHireSlots(gameKeeper.hireSlots);
@@ -326,13 +323,11 @@ const gameKeeper = {
 
             //remove existing button formatting
             let existingCurrent = document.querySelector('.activePlayerPhaseButton-Current');
-            console.log(existingCurrent);
             existingCurrent.classList.remove('activePlayerPhaseButton-Current');
 
             if (gameKeeper.turnPhase !== 'End') {
                 
                 let existingNext = document.querySelector('.activePlayerPhaseButton-Next');
-                console.log(existingNext);
                 existingNext.classList.remove('activePlayerPhaseButton-Next');
             }
 
@@ -342,34 +337,28 @@ const gameKeeper = {
 
             let currentPhase = document.getElementById(`activeTurnPhase${turnPhaseIds[turnPhaseNumber]}`);
             currentPhase.classList.add('activePlayerPhaseButton-Current');
-            console.log(currentPhase);
 
             if ( turnPhaseNumber < 3) {
                 
                 let nextPhase = document.getElementById(`activeTurnPhase${turnPhaseIds[turnPhaseNumber+1]}`);
                 nextPhase.classList.add('activePlayerPhaseButton-Next');
-                console.log(nextPhase);
             }
-
-            console.log(turnPhaseIds[turnPhaseNumber], turnPhaseNumber);
 
         },
 
         updateAvailableHireDisplay() {
             console.log(gameKeeper);
             //remove previous available hires to avoid confusion
-            let existingHireAvailable = document.getElementsByClassName('hireAvailable');
+            let existingHireAvailable = document.querySelectorAll('.hireAvailable');
             if (existingHireAvailable.length > 0) {
 
                 existingHireAvailable.forEach(existingHire => {
                     existingHire.classList.remove('hireAvailable');
                 });
             }
-            console.log(gameKeeper.hireSlots);
             //add green border around available hires
             let availableHires = gameKeeper.hireSlots.filter(hireSlot => {
                 let availableHire = false;
-                console.log(hireSlot);
                 let hireCost = hireSlot[0].cost;
                 let hireName = hireSlot[0].name;
 
@@ -493,7 +482,6 @@ const gameKeeper = {
             //remove redFont class if present
             document.getElementById("activePlayerAttackCount").classList.remove("redFont");
 
-            gameKeeper.addToUndoLog();
             gameKeeper.beginHirePhase();
             
         },
@@ -524,7 +512,6 @@ const gameKeeper = {
             //clears hiredLog for next player
             gameKeeper.hiredLog = [];
 
-            gameKeeper.addToUndoLog();
             gameKeeper.beginEndPhase();
 
         },
@@ -562,7 +549,7 @@ const gameKeeper = {
 
                 gameKeeper.changeActivePlayer();
 
-                gameKeeper.addToUndoLog();
+
                 gameKeeper.checkForInjuries();
 
             }
@@ -677,8 +664,6 @@ const gameKeeper = {
         
         updateSelectedIndex(targetId) {
 
-            console.log(`targetId: ${targetId}`)
-
             let selectedDisplay = document.getElementById(targetId);
 
             gameKeeper.selectedIndex = utility.getIndexByMarkValue(gameKeeper.activePlayer.hand, targetId);
@@ -703,20 +688,13 @@ const gameKeeper = {
                 gameKeeper.enablePlayOnDeck();
             }
 
-            console.log("Test gameAreaCoverGridBox");
-            console.log(!document.getElementById("gameAreaCoverGridBox"));
-
             //enables card to be discarded
             gameKeeper.enableDiscard();
-
-            console.log(`selected index: ${gameKeeper.selectedIndex}`);
-            console.log(gameKeeper.selectedCard);
 
         },
         
         deselect(){
 
-            gameKeeper.addToUndoLog();
             
             let gridCoverBox = document.getElementById("gameAreaCoverGridBox");
             let gameAreaWrapper = document.getElementById("GameAreaWrapper");
@@ -756,8 +734,6 @@ const gameKeeper = {
 
             gameKeeper.selectedCard = {}; //resets selectedCard to an empty object
             gameKeeper.selectedIndex = -1; //resets selectedIndex to -1
-
-            console.log("deselect end");
 
         },
 
@@ -814,7 +790,6 @@ const gameKeeper = {
 
         changeActivePlayer(index){
 
-            gameKeeper.addToUndoLog();
 
             if(index) { //if an index is given for a specific player, show that player
 
@@ -912,7 +887,6 @@ const gameKeeper = {
                 }
             }
 
-            gameKeeper.addToUndoLog();
             gameKeeper.activePlayer.totalPerformances++;
             gameKeeper.endPerformPhase();
 
@@ -950,7 +924,6 @@ const gameKeeper = {
                     gameKeeper.updateDisplayCount("activePlayerDiscardCount", gameKeeper.activePlayer.discard.length);
 
                     gameKeeper.gameLog(`Hired ${hireCard.name}`);
-                    gameKeeper.addToUndoLog();
 
                 } else if(gameKeeper.activePlayer.laborPoints < hireCost) {
 
@@ -1055,16 +1028,10 @@ const gameKeeper = {
 
                 if(elem.name !== activePlayer.name) {
 
-                    console.log(`unactive Player ${elem.name} rendered in nonActive summary`);
                     artist.renderMiniPlayerSummary(elem, nonActivePlayerContainer);
-
-                } else if( elem.name === activePlayer.name) {
-
-                    console.log(`active Player ${activePlayer.name} not rendered in nonActive summary`);
 
                 }
             })
-
 
         },
 

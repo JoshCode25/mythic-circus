@@ -1,8 +1,6 @@
 const utility = {
 
     getIndexByMarkValue(arr, value) { //finds index of item in given array based on given Mark value
-
-        console.log("start getIndexByMarkValue");
     
         for (let i = 0; i < arr.length; i++) { //loops through given array comparing mark values to given value
     
@@ -17,7 +15,6 @@ const utility = {
     
     getIndexByNameValue(arr, value) { //finds index of item in given array based on given name value
 
-        console.log("start getIndexByNameValue");
     
         for (let i = 0; i < arr.length; i++) { //loops through given array comparing name values to given value
     

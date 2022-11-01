@@ -170,5 +170,4 @@ if(cardsTrue.includes("Unicorn")) {
 
 }
 
-console.log(cardCollection);
 export default cardCollection;
