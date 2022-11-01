@@ -347,7 +347,7 @@ const gameKeeper = {
         },
 
         updateAvailableHireDisplay() {
-            console.log(gameKeeper);
+
             //remove previous available hires to avoid confusion
             let existingHireAvailable = document.querySelectorAll('.hireAvailable');
             if (existingHireAvailable.length > 0) {
@@ -915,7 +915,6 @@ const gameKeeper = {
 
                     gameKeeper.hiredLog.push(hireCard); //adds card to hiredLog to prevent double hiring in a turn
 
-                    console.log(hireCard);
                     hireCard.owner = gameKeeper.activePlayer.name; 
                     gameKeeper.activePlayer.discard.push(hireCard);
 
