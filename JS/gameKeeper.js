@@ -8,7 +8,6 @@ const gameKeeper = {
         selectedIndex: -1,
         selectedCard: {},
         messageLog: [],
-        undoMax: 5,
         startingHandAmount: 5,
 
         activePlayer: {},
@@ -70,79 +69,6 @@ const gameKeeper = {
         gKHandSelectListener() {
 
             gameKeeper.updateSelectedIndex(this.id);
-
-        },
-
-        //need to figure out how to efficiently deep clone gameKeeper, players[], and hireSlots[]
-        addToUndoLog() { //adds copy of current gameKeeper to undo log with a max number of stores
-
-            // //adds players array to gameKeeper for saving
-            // let playersArray = gameSetup.players;
-            // let copiedPlayers = [];
-            // let copiedGameKeeper = Object.assign({}, gameKeeper); //only clones properties, arrays/objects are still referenced
-            // let hireSlotsArray = gameKeeper.hireSlots;
-            // let copiedHireSlots = [];
-
-            // playersArray.forEach(function(elem) {
-
-            //     let playerCopy = Object.assign({}, elem); //shallow copy, needs to clone arrays full of objects
-            //     copiedPlayers.push(playerCopy);
-
-            // })
-
-            // hireSlotsArray.forEach(function(elem) {
-
-            //     // let hireCopy = Object.assign
-            // })
-
-            // let undoEntry = {players: copiedPlayers, gameKeeper: copiedGameKeeper};
-
-            // if(undoLog.length < gameKeeper.undoMax) {
-
-            //     undoLog.unshift(undoEntry);
-            //     console.log(undoLog);
-
-            // } else {
-
-
-            //     undoLog.pop();
-            //     undoLog.unshift(undoEntry);
-            //     console.log(undoLog);
-
-            // }
-        },
-
-        //need to figure out how to properly log previous states
-        undo() {
-
-            // let previousSave = undoLog.shift();
-
-            // console.log(previousSave);
-
-            // //restores players to previous "save"
-            // if(gameKeeper.undoPlayers !== previousSave.undoPlayers) {
-
-            //     console.log("need to update players");
-            //     // gameKeeper.undoPlayers = previousSave.undoPlayers;
-
-            // }
-
-            // //restores activePlayer to previous "save"
-            // if(gameKeeper.activePlayer !== previousSave.activePlayer) {
-
-            //     console.log("need to update activePlayer");
-            //     gameKeeper.activePlayer = previousSave.activePlayer;
-            //     artist.renderActivePlayer();
-
-            // }
-
-            // if(gameKeeper.hireSlots !== previousSave.hireSlots) {
-
-            //     console.log("need to update hireSlots");
-            //     gameKeeper.hireSlots = previousSave.hireSlots;
-            //     gameKeeper.createHireSlots(gameKeeper.hireSlots);
-
-            // }
 
         },
 
@@ -383,10 +309,6 @@ const gameKeeper = {
             gameKeeper.countPerf(gameKeeper.activePlayer, "activePlayerPerfCount");
 
             gameKeeper.updateTurnPhaseDisplay();
-            // let currentPhaseButton = document.getElementById("activeTurnPhasePerform");
-            // let nextPhaseButton = document.getElementById("activeTurnPhasePlay");
-            // currentPhaseButton.classList.add("activePlayerPhaseButton-Current");
-            // nextPhaseButton.classList.add("activePlayerPhaseButton-Next")
 
             artist.renderChoiceDialogue("perfRequestContainer", "Perform?", "Perform", "Pass");
             let perfRequestContainer = document.getElementById("perfRequestContainer");
@@ -414,10 +336,7 @@ const gameKeeper = {
                 let discardedPhoenix = gameKeeper.activePlayer.discard.find(elem => elem.name === "Phoenix");
                 phoenixIndicator.addEventListener("click", discardedPhoenix.rise);
 
-                console.log("contains Phoenix");
-            } else {
-                console.log("no Phoenix found");
-            }
+            } 
         },
 
         endPerformPhase() {
@@ -538,7 +457,6 @@ const gameKeeper = {
             gameKeeper.activePlayer.netDrawFromDeck = gameKeeper.activePlayer.totalDrawFromDeck -gameKeeper.startingHandAmount*(gameKeeper.activePlayer.turns+1);
  
             console.log(gameKeeper);
-            console.log(`Last Round: ${gameKeeper.lastRound}`);
 
             //If it's the last round and the last player, end the game
             if(gameKeeper.lastRound === true && gameKeeper.activePlayerIndex === gameSetup.players.length -1) {
@@ -1151,7 +1069,5 @@ const gameKeeper = {
         }
 
     }
-
-    // var undoLog = [];
 
 export default gameKeeper;
