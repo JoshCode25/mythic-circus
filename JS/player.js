@@ -22,7 +22,7 @@ export default class Player { //onStart - creates class constructor for player o
 		this.pendingInjuries = 0;
 
 		this.totalDrawFromDeck = 0;
-		this.netDrawFromDeck = this.totalDrawFromDeck - this.turns*5;
+		this.netDrawFromDeck = 0;
 		this.totalDiscard = 0;
 		this.totalLaborPoints = 0;
 		this.totalPerfPoints = 0;
@@ -48,6 +48,11 @@ export default class Player { //onStart - creates class constructor for player o
 		cardList.unshift(listWorkingGnome);
 	}
 
+	setNetDrawFromDeck() {
+
+		this.netDrawFromDeck = this.totalDrawFromDeck - this.turns*5;
+		
+	}
 	clearHandToDiscard() { //moves all cards from hand array to discard array
 
 		if (this.hand.length > 0) { //checks if there are cards in hand array to move to discard array
@@ -58,9 +63,6 @@ export default class Player { //onStart - creates class constructor for player o
 			this.hand.length = 0; //clears hand array by setting length to 0
 
 			gameKeeper.updateDisplayCount('activePlayerDiscardCount', this.discard.length);
-
-			console.log("Hand Length: " + this.laborArea.length);
-			console.log("Discard Length: " + this.discard.length);
 
 		} else { //if there are no cards in hand array, lets console know
 
@@ -82,9 +84,6 @@ export default class Player { //onStart - creates class constructor for player o
 
 			gameKeeper.updateDisplayCount('activePlayerDiscardCount', this.discard.length);
 
-			console.log("Labor Area Length: " + this.laborArea.length);
-			console.log("Discard Length: " + this.discard.length);
-
 		} else { //if there are no cards in laborArea array, lets console know
 
 			console.log("clearLaborToDiscard - No Laborers to discard");
@@ -97,12 +96,9 @@ export default class Player { //onStart - creates class constructor for player o
 
 		if (this.onDeck.length > 0) { //checks if there are cards in onDeck array to move to discard array
 
-			console.log("On Deck Length: " + this.onDeck.length);
-
 			this.onDeck.forEach(function(item) {artist.removeDisplay(item, "activePlayerOnDeckWrapper")}); //removes <td> elements containing card images
 			this.onDeck.forEach(function(element) {
-				console.log("player clearOnDeckToDiscard");
-				console.log(this);
+
 				element.sentToDiscard(); //checks if element needs to be "reset" after leaving onDeck
 				this.discard.push(element); //moves element to discard array
 
@@ -110,10 +106,6 @@ export default class Player { //onStart - creates class constructor for player o
 			this.onDeck.length = 0; //clears onDeck array by setting length to 0
 
 			gameKeeper.updateDisplayCount('activePlayerDiscardCount', this.discard.length);
-
-
-			console.log("Labor Area Length: " + this.onDeck.length);
-			console.log("Discard Length: " + this.discard.length);
 
 		} else { //if there are no cards in onDeck array, lets console know
 
@@ -240,7 +232,6 @@ export default class Player { //onStart - creates class constructor for player o
 
 			} else if(deck.length == 0 && discard.length == 0){ //if no cards are available in deck or discard
 
-				console.log("drawFromDeck - no cards to draw");
 				gameKeeper.gameLog("No cards to draw");
 				break;
 
@@ -276,8 +267,6 @@ export default class Player { //onStart - creates class constructor for player o
 			// this.updateHandCount(idHand);
 			gameKeeper.updateDisplayCount('activePlayerDiscardCount', this.discard.length);
 
-			console.log("Hand: " + this.hand.length);
-			console.log("Discard: " + this.discard.length);
 			this.totalDiscard++;
 
 			gameKeeper.deselect();
@@ -314,10 +303,6 @@ export default class Player { //onStart - creates class constructor for player o
 
 	moveHandToOnDeck(index, idHand, idOnDeck) { //moves a card from a player's Hand array based on "index" to onDeck array
 
-		// let onDeckTable = document.getElementById("activePlayerOnDeckTable");
-		// console.log("On Deck Table:");
-		// console.log(onDeckTable);
-
 		if(this.hand.length > 0 && this.hand[index] !== undefined) { //checks if there are cards in Hand array to push to onDeck array
 
 			artist.removeDisplay(this.hand[index], "activePlayerHandWrapper");
@@ -328,15 +313,12 @@ export default class Player { //onStart - creates class constructor for player o
 
 			card.playOnDeck();
 
-			console.log("Hand: " + this.hand.length);
-			console.log("On Deck: " + this.onDeck.length);
 			gameKeeper.gameLog(`${this.onDeck[this.onDeck.length-1].name} sent On Deck`);
 
 			gameKeeper.deselect();
 
 		}else {
 
-			console.log("moveHandToOnDeck - No cards in hand");
 			gameKeeper.gameLog("No Cards in hand");
 
 		}
@@ -346,13 +328,7 @@ export default class Player { //onStart - creates class constructor for player o
 
 		if(this.onDeck.length > 0) { //checks if there are cards in the onDeck array
 
-			console.log("tdId: " + divId);
-			console.log(this.onDeck);
-
 			let index = utility.getIndexByMarkValue(this.onDeck, divId); //returns -1 if tdId cannot be found in player's onDeck array
-			console.log("index: " + index);
-			// let markTest = this.onDeck[index];
-			// console.log("mark: " + markTest.mark);
 
 			if(divId === 0) {
 
@@ -370,9 +346,7 @@ export default class Player { //onStart - creates class constructor for player o
 
 				gameKeeper.updateDisplayCount('activePlayerDiscardCount', this.discard.length);
 
-				console.log("On Deck: " + this.onDeck.length);
 				gameKeeper.gameLog(`On Deck: ${this.onDeck.length}`);
-				console.log("Discard: " + this.discard.length);
 				gameKeeper.gameLog(`Discard: ${this.discard.length}`);
 
 			} else {
@@ -385,7 +359,6 @@ export default class Player { //onStart - creates class constructor for player o
 
 		}else { //if onDeck array is empty, no cards are moved to discard array
 
-			console.log("moveOnDeckToDiscard - No Card to Move");
 			gameKeeper.gameLog("No Card to Move");
 			
 		}
@@ -415,10 +388,8 @@ export default class Player { //onStart - creates class constructor for player o
 	// returns card of discard array to top of deck array based on index
 	returnDiscardToDeck(index, idDiscard, idDeck) {
 
-		console.log(this.deck);
 		this.deck.push(this.discard[index]);
 		this.discard.splice(index, 1);
-		console.log(this.deck);
 
 		gameKeeper.updateDisplayCount(idDeck, this.deck.length);
 		gameKeeper.updateDisplayCount(idDiscard, this.discard.length);
@@ -428,11 +399,9 @@ export default class Player { //onStart - creates class constructor for player o
 	//returns card of discard array to onDeck array based on index
 	returnDiscardToOnDeck(index, idDiscard) {
 
-		console.log(this.onDeck);
 		artist.renderMini(this.discard[index], "activePlayerOnDeckWrapper");
 		this.onDeck.push(this.discard[index]);
 		this.discard.splice(index, 1);
-		console.log(this.onDeck);
 
 		gameKeeper.updateDisplayCount(idDiscard, this.discard.length);
 
@@ -441,11 +410,9 @@ export default class Player { //onStart - creates class constructor for player o
 	//returns card of discard array to hand array based on index
 	moveDiscardToHand(index, idDiscard) {
 
-		console.log(this.hand);
 		artist.renderMini(this.discard[index], "activePlayerHandWrapper");
 		this.hand.push(this.discard[index]);
 		this.discard.splice(index, 1);
-		console.log(this.hand);
 
 		gameKeeper.updateDisplayCount(idDiscard, this.discard.length);
 
