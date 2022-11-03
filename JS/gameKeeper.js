@@ -20,6 +20,14 @@ const gameKeeper = {
 
         lastRound: false,
 
+        performanceStats : [
+            [0, 'Unacceptable', 0],
+            [6, 'Mediocre', 1],
+            [11, 'Memorable', 2],
+            [16, 'Stellar', 3],
+            [21, 'Instant Classic', 4]
+        ],
+
         mediocre: 6,
         mediocreReward: 1,
         memorable: 11,
@@ -302,6 +310,31 @@ const gameKeeper = {
             })
         },
 
+        checkPerfQuality() {
+            let perfCount = gameKeeper.activePlayer.performancePoints;
+            let perfData = {
+                perfReq: 0,
+                perfType: '',
+                perfPoints: 0
+            }
+
+            for (let i=0; i < gameKeeper.performanceStats.length; i++) {
+                let perfStats = gameKeeper.performanceStats;
+                let perfReq = perfStats[i+1][0];
+
+                if (perfCount < perfReq) {
+                    perfData.perfReq = perfStats[i][0];
+                    perfData.perfType = perfStats[i][1];
+                    perfData.perfPoints = perfStats[i][2];
+                    break;
+                }
+            }
+
+            let displayMessage = `${perfData.perfType} Performance for ${perfData.perfPoints} Points?`
+            return displayMessage;
+
+        },
+
         beginPerformPhase() {
 
             gameKeeper.turnPhase = 'Perform';
@@ -309,8 +342,9 @@ const gameKeeper = {
             gameKeeper.countPerf(gameKeeper.activePlayer, "activePlayerPerfCount");
 
             gameKeeper.updateTurnPhaseDisplay();
+            let perfTitle = (gameKeeper.activePlayer.onDeck.length > 0) ? gameKeeper.checkPerfQuality() : 'No one to Perform';
 
-            artist.renderChoiceDialogue("perfRequestContainer", "Perform?", "Perform", "Pass");
+            artist.renderChoiceDialogue("perfRequestContainer", perfTitle, "Perform", "Pass");
             let perfRequestContainer = document.getElementById("perfRequestContainer");
             let perfButton = perfRequestContainer.querySelector(".buttonLeft");
             let passButton = perfRequestContainer.querySelector(".buttonRight");
@@ -1048,9 +1082,7 @@ const gameKeeper = {
             if(gameKeeper.activePlayer.pendingAttacks > 0) {
 
                 injuredPlayer.pendingInjuries++;
-                console.log(`${injuredPlayer.name} Injuries: ${injuredPlayer.pendingInjuries}`);
                 gameKeeper.activePlayer.pendingAttacks--;
-                console.log(`${gameKeeper.activePlayer.name} Attacks: ${gameKeeper.activePlayer.pendingAttacks}`);
 
                 //updates display to current pending attack amount
                 let attackCountId = "activePlayerAttackCount";
