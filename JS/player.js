@@ -51,7 +51,7 @@ export default class Player { //onStart - creates class constructor for player o
 	setNetDrawFromDeck() {
 
 		this.netDrawFromDeck = this.totalDrawFromDeck - this.turns*5;
-		
+
 	}
 	clearHandToDiscard() { //moves all cards from hand array to discard array
 
@@ -66,7 +66,6 @@ export default class Player { //onStart - creates class constructor for player o
 
 		} else { //if there are no cards in hand array, lets console know
 
-			console.log("clearHandToDiscard - No Laborers to discard");
 			gameKeeper.gameLog("No Laborers to discard");
 
 		}
@@ -109,7 +108,6 @@ export default class Player { //onStart - creates class constructor for player o
 
 		} else { //if there are no cards in onDeck array, lets console know
 
-			console.log("clearOnDeckToDiscard - No On Deck Performers");
 			gameKeeper.gameLog("No On Deck Performers");
 
 		}
