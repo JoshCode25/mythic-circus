@@ -293,6 +293,11 @@ const gameKeeper = {
             //add green border around available hires
             let availableHires = gameKeeper.hireSlots.filter(hireSlot => {
                 let availableHire = false;
+
+                if (hireSlot.length === 0) { //don't allow cards to be hired if none are left
+                    return availableHire;
+                }
+
                 let hireCost = hireSlot[0].cost;
                 let hireName = hireSlot[0].name;
 
@@ -850,6 +855,12 @@ const gameKeeper = {
 
                 let slotId = this.id;
                 let index = slotId.slice(-1);
+
+                //check if any are left to hire
+                if (gameKeeper.hireSlots[index].length === 0) {
+                    gameKeeper.gameLog('There are none left to hire!');
+                    return;
+                }
                 let hireSlot = gameKeeper.hireSlots[index];
                 let hireCost = hireSlot[0].cost;
                 let mayHire = true;

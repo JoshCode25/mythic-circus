@@ -11,18 +11,20 @@
 }
 
 .buttonRight{
-	width: auto;
-	height: auto;
+	width: 50%;
+	height: 45px;
 	position: absolute;
-	right: 10%;
-	bottom: 20%;
+	right: 0%;
+	bottom: 0%;
+	font-size: 20px;
 }
 .buttonLeft{
-	width: auto;
-	height: auto;
+	width: 50%;
+	height: 45px;
 	position: absolute;
-	left: 10%;
-	bottom: 20%;
+	left: 0%;
+	bottom: 0%;
+	font-size: 20px;
 }
 
 .button1{
@@ -58,7 +60,7 @@
 	z-index: 30;
 	border: 3px solid black;
 }
-.renderClose .button1 .button2:hover{
+.renderClose:hover, .button1:hover, .button2:hover, .buttonLeft:hover, .buttonRight:hover{
 	cursor: pointer;
 }
 /* #renderArraySample{

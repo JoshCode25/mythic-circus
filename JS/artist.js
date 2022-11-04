@@ -230,6 +230,7 @@ const artist = {
 		let renderTitle = document.createElement("p");
 		renderTitle.textContent = title;
 		renderTitle.classList.add("renderedHeader");
+		choiceDialogueContainer.appendChild(renderTitle);
 
 		//if text is given for left/right buttons, create and populate
 		if(leftButtonText) {
@@ -254,7 +255,6 @@ const artist = {
 		
 		}
 
-		choiceDialogueContainer.appendChild(renderTitle);
 		choiceDialogueFragment.appendChild(choiceDialogueContainer);
 		gameAreaWrapper.appendChild(choiceDialogueFragment);
 
