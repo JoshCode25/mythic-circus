@@ -354,6 +354,7 @@ const gameKeeper = {
             let perfButton = perfRequestContainer.querySelector(".buttonLeft");
             let passButton = perfRequestContainer.querySelector(".buttonRight");
 
+            perfRequestContainer.appendChild(artist.renderPerfQualityList());
             perfButton.addEventListener("click", gameKeeper.perform);
             passButton.addEventListener("click", gameKeeper.endPerformPhase);
 

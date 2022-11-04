@@ -330,6 +330,38 @@ const artist = {
 		summaryFrag.appendChild(wrapperDiv);
 		summaryContainer.appendChild(summaryFrag);
 
+	},
+
+	renderPerfQualityList() {
+		let netPerformanceStats = gameKeeper.performanceStats.slice(1);
+		console.log(netPerformanceStats);
+		let listContainer = document.createDocumentFragment();
+		let listWrapper = document.createElement('table');
+		let headerInfoList = ['Perf Quality', 'Perf Type', 'VP'];
+
+		for (let i=0; i<=netPerformanceStats.length; i++) {
+			if(i===0) {
+				let headerRow = document.createElement('tr');
+				headerInfoList.forEach(header => {
+					let headerInfo = document.createElement('th');
+					headerInfo.innerText = header;
+					headerRow.appendChild(headerInfo);
+				})
+				listWrapper.appendChild(headerRow);
+				console.log(headerRow);
+			} else {
+				let infoRow = document.createElement('tr');
+				netPerformanceStats[i].forEach(stat => {
+					let statInfo = document.createElement('td');
+					statInfo.innerText = stat;
+					infoRow.appendChild(statInfo);
+					console.log(statInfo);
+				});
+			}
+		}
+		listContainer.appendChild(listWrapper);
+		console.log(listWrapper);
+		return listContainer;
 	}
 }
 
