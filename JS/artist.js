@@ -351,12 +351,13 @@ const artist = {
 				console.log(headerRow);
 			} else {
 				let infoRow = document.createElement('tr');
-				netPerformanceStats[i].forEach(stat => {
+				netPerformanceStats[i-1].forEach((stat, index) => {
 					let statInfo = document.createElement('td');
-					statInfo.innerText = stat;
+					statInfo.innerText = (index === 0) ? stat + '+' : stat;
 					infoRow.appendChild(statInfo);
 					console.log(statInfo);
 				});
+				listWrapper.appendChild(infoRow);
 			}
 		}
 		listContainer.appendChild(listWrapper);
