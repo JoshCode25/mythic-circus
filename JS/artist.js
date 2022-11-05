@@ -333,13 +333,14 @@ const artist = {
 	},
 
 	renderPerfQualityList() {
-		let netPerformanceStats = gameKeeper.performanceStats.slice(1);
-		console.log(netPerformanceStats);
+		let perfQualityStats = gameKeeper.performanceStats;
 		let listContainer = document.createDocumentFragment();
 		let listWrapper = document.createElement('table');
+		listWrapper.classList.add('perfQualityList');
 		let headerInfoList = ['Perf Quality', 'Perf Type', 'VP'];
+		let playerPerfQuality = gameKeeper.activePlayer.performancePoints;
 
-		for (let i=0; i<=netPerformanceStats.length; i++) {
+		for (let i=0; i<=perfQualityStats.length; i++) {
 			if(i===0) {
 				let headerRow = document.createElement('tr');
 				headerInfoList.forEach(header => {
@@ -348,20 +349,29 @@ const artist = {
 					headerRow.appendChild(headerInfo);
 				})
 				listWrapper.appendChild(headerRow);
-				console.log(headerRow);
+
 			} else {
 				let infoRow = document.createElement('tr');
-				netPerformanceStats[i-1].forEach((stat, index) => {
+
+				//identify which performance quality the player qualifies for
+				let adequateQuality = playerPerfQuality > perfQualityStats[i-1][0];
+				let highestType = (i < perfQualityStats.length) ? playerPerfQuality < perfQualityStats[i][0] : true;
+				console.log(playerPerfQuality, perfQualityStats[i-1][0], highestType);
+				if (adequateQuality && highestType) {
+					infoRow.classList.add('perfQualityId');
+				}
+
+				perfQualityStats[i-1].forEach((stat, index) => {
 					let statInfo = document.createElement('td');
 					statInfo.innerText = (index === 0) ? stat + '+' : stat;
 					infoRow.appendChild(statInfo);
-					console.log(statInfo);
+
 				});
 				listWrapper.appendChild(infoRow);
 			}
 		}
+
 		listContainer.appendChild(listWrapper);
-		console.log(listWrapper);
 		return listContainer;
 	}
 }

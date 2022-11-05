@@ -115,3 +115,15 @@
 .greenFont{
 	color: greenyellow;
 }
+table{
+	border-collapse: collapse;
+}
+.perfQualityList {
+	margin: 10px 0px 0px 15px;
+}
+.perfQualityList .perfQualityId{
+	border: 2px solid purple;
+}
+.perfQualityList td{
+	padding: 0px 2px;
+}
