@@ -43,9 +43,18 @@
 }
 .activePlayClick{
 	z-index: 20;
-	background-color: rgba(200, 200, 200, 0.6);
+	background-color: white;
+	box-shadow: 6px 6px 4px green inset, -6px -6px 4px green inset;
 	position: relative;
 	top: -100%;
+}
+.activePlayClick:hover{
+	cursor: pointer;
+}
+.activePlayClickDescription{
+	position: relative;
+	margin: 10px;
+	font-size: 14px;
 }
 .activeHandWrapper, .activeMiniWrapper{
 	height: 100px;

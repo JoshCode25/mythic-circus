@@ -700,10 +700,16 @@ const gameKeeper = {
             if(!document.getElementById("laborPlayBox")){
                 let laborGridBox = document.getElementById("activePlayerLaborGridBox");
                 let laborPlayBox = document.createElement("div");
+                let selectedCard = gameKeeper.selectedCard;
+                let laborPlayDescription = document.createElement("p");
+                let laborDescription = `Play ${selectedCard.name} to labor for ${selectedCard.labor} Labor Points`;
+                laborPlayDescription.innerText = laborDescription
+                laborPlayDescription.classList.add("activePlayClickDescription");
 
                 laborPlayBox.id = "laborPlayBox";
                 laborPlayBox.classList.add("gridBox", "activePlayClick");
                 laborPlayBox.addEventListener("click", function(){gameKeeper.activePlayer.moveHandToLabor(gameKeeper.selectedIndex)});
+                laborPlayBox.appendChild(laborPlayDescription);
 
                 laborGridBox.appendChild(laborPlayBox);
             }
