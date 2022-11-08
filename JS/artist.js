@@ -356,7 +356,7 @@ const artist = {
 				//identify which performance quality the player qualifies for
 				let adequateQuality = playerPerfQuality > perfQualityStats[i-1][0];
 				let highestType = (i < perfQualityStats.length) ? playerPerfQuality < perfQualityStats[i][0] : true;
-				console.log(playerPerfQuality, perfQualityStats[i-1][0], highestType);
+	
 				if (adequateQuality && highestType) {
 					infoRow.classList.add('perfQualityId');
 				}

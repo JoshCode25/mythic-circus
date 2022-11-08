@@ -52,9 +52,9 @@
 	cursor: pointer;
 }
 .activePlayClickDescription{
-	position: relative;
-	margin: 10px;
-	font-size: 14px;
+	margin: 0px;
+	padding: 14px;
+	font-size: 16px;
 }
 .activeHandWrapper, .activeMiniWrapper{
 	height: 100px;

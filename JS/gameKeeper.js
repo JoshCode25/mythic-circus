@@ -701,15 +701,30 @@ const gameKeeper = {
                 let laborGridBox = document.getElementById("activePlayerLaborGridBox");
                 let laborPlayBox = document.createElement("div");
                 let selectedCard = gameKeeper.selectedCard;
+
+                //add description for amount of Labor points to be added
                 let laborPlayDescription = document.createElement("p");
-                let laborDescription = `Play ${selectedCard.name} to labor for ${selectedCard.labor} Labor Points`;
+                let pointPlurality = selectedCard.labor === 1 ? 'Point' : 'Points';
+                let laborDescription = `Play ${selectedCard.name} to labor for ${selectedCard.labor} Labor ${pointPlurality}`;
                 laborPlayDescription.innerText = laborDescription
                 laborPlayDescription.classList.add("activePlayClickDescription");
+                laborPlayBox.appendChild(laborPlayDescription);
+
+                //add ability description, if it applies
+                let hasPerfAbility = selectedCard.ability.toLowerCase().includes('perf:'); 
+                let hasAttackAbility = selectedCard.ability.toLowerCase().includes('attack');
+                if(!hasPerfAbility || hasAttackAbility) {
+                    let perfAbility = hasPerfAbility? selectedCard.ability.slice(5) : selectedCard.ability.slice();
+                    let perfAbilityDescription = document.createElement("p");
+                    perfAbilityDescription.innerText = perfAbility;
+                    perfAbilityDescription.classList.add("activePlayClickDescription");
+
+                    onDeckPlayBox.appendChild(perfAbilityDescription);
+                }                
 
                 laborPlayBox.id = "laborPlayBox";
                 laborPlayBox.classList.add("gridBox", "activePlayClick");
                 laborPlayBox.addEventListener("click", function(){gameKeeper.activePlayer.moveHandToLabor(gameKeeper.selectedIndex)});
-                laborPlayBox.appendChild(laborPlayDescription);
 
                 laborGridBox.appendChild(laborPlayBox);
             }
@@ -721,6 +736,28 @@ const gameKeeper = {
             if(!document.getElementById("onDeckPlayBox")){
                 let onDeckGridBox = document.getElementById("activePlayerOnDeckGridBox");
                 let onDeckPlayBox = document.createElement("div");
+
+                let selectedCard = gameKeeper.selectedCard;
+                
+                //add description for amount of perf points to be added
+                let onDeckPlayDescription = document.createElement("p");
+                let pointPlurality = selectedCard.perf === 1 ? 'Point' : 'Points';
+                let perfDescription = `Play ${selectedCard.name} to On Deck for ${selectedCard.perf} Performance ${pointPlurality}`;
+                onDeckPlayDescription.innerText = perfDescription
+                onDeckPlayDescription.classList.add("activePlayClickDescription");
+                onDeckPlayBox.appendChild(onDeckPlayDescription);
+                
+                //add ability description, if it applies
+                let hasPerfAbility = selectedCard.ability.toLowerCase().includes('perf:'); 
+                let hasAttackAbility = selectedCard.ability.toLowerCase().includes('attack');
+                if(hasPerfAbility || hasAttackAbility) {
+                    let perfAbility = hasPerfAbility? selectedCard.ability.slice(5) : selectedCard.ability.slice();
+                    let perfAbilityDescription = document.createElement("p");
+                    perfAbilityDescription.innerText = perfAbility;
+                    perfAbilityDescription.classList.add("activePlayClickDescription");
+
+                    onDeckPlayBox.appendChild(perfAbilityDescription);
+                }
 
                 onDeckPlayBox.id = "onDeckPlayBox";
                 onDeckPlayBox.classList.add("gridBox", "activePlayClick");
