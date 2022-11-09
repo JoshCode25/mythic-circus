@@ -415,6 +415,7 @@ const gameKeeper = {
                 let cardMark = gameKeeper.activePlayer.hand[i].mark;
                 let activeDiv = document.getElementById(cardMark);
                 activeDiv.addEventListener("click", this.gKHandSelectListener);
+                activeDiv.classList.add("cursorHover");
             }
 
             let endPhaseClick = document.getElementById("activeTurnPhaseHire");
@@ -430,6 +431,7 @@ const gameKeeper = {
                 let cardMark = gameKeeper.activePlayer.hand[i].mark;
                 let activeDiv = document.getElementById(cardMark);
                 activeDiv.removeEventListener("click", this.gKHandSelectListener);
+                activeDiv.classList.remove("cursorHover");
             }
 
             let endPhaseClick = document.getElementById("activeTurnPhaseHire");

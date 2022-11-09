@@ -51,6 +51,9 @@
 .activePlayClick:hover{
 	cursor: pointer;
 }
+.cursorHover:hover{
+	cursor: pointer;
+}
 .activePlayClickDescription{
 	margin: 0px;
 	padding: 14px;
