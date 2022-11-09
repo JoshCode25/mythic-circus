@@ -9,7 +9,7 @@ export default class WorkingGnome extends Card{ //onStart - sets up Working Gnom
 		this.perf = "-";
 		this.enablePerf = false;
 		this.cost = 0;
-		this.ability = "Simply a Working Gnome";
+		this.ability = "";
 		this.image = "https://res.cloudinary.com/joshcode25/image/upload/v1622678133/Mythic%20Circus/Working%20Gnome.png";
 
 		this.totalLabored = 0;

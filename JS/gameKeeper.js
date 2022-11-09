@@ -122,8 +122,6 @@ const gameKeeper = {
 						let cardId = this.id;
 						let cardIndex = utility.getIndexByMarkValue(gameKeeper.activePlayer.onDeck, cardId);
 						let cardSelected = gameKeeper.activePlayer.onDeck[cardIndex];
-					
-						console.log(injureSelected.length);
 
 						//if injureSelected has less than injureAmount cards in it, add red border to clicked cards
 						if(injureSelected.length < injureAmount) {
@@ -142,7 +140,6 @@ const gameKeeper = {
                             //check to make sure the same card isn't injured multiple times (except for Minotaur)
                             if(injureSelected.length === 0 || injureSelected.some(elem => elem.mark !== cardSelected.mark)) {
 
-                                console.log(`${cardSelected.mark} has been added to the injureSelected array for the first time`);
                                 injureSelected.push(cardSelected);
 
                             } else if(cardSelected.name === "Minotaur") {
@@ -200,12 +197,10 @@ const gameKeeper = {
 						injureSelected.forEach( function(elem) {
 							
                             //finds card in onDeck array's mark, then get's the element of the same id to remove
-							console.log("injureSelected forEach Discarding");
 							let cardId = elem.mark;
 							let cardIndex = gameKeeper.activePlayer.onDeck.findIndex(elem => elem.mark === cardId);
                             
                             let card = gameKeeper.activePlayer.onDeck[cardIndex];
-                            console.log(card);
                             card.injure(); //takes care of moving card to discard and anything else
 
 						})
@@ -721,7 +716,7 @@ const gameKeeper = {
                     perfAbilityDescription.innerText = perfAbility;
                     perfAbilityDescription.classList.add("activePlayClickDescription");
 
-                    onDeckPlayBox.appendChild(perfAbilityDescription);
+                    laborPlayBox.appendChild(perfAbilityDescription);
                 }                
 
                 laborPlayBox.id = "laborPlayBox";
