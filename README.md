@@ -1,6 +1,6 @@
 # Mythic-Circus
 
-> This is an original deck-building card game I designed. This repo is currently set up as a two-player pass-n-play experience.
+This is an original deck-building card game I designed. This repo is currently set up as a two-player pass-n-play experience.
 
 The first one to 10 VP wins!
 
@@ -14,12 +14,14 @@ Most cards have special abilities/talents that activate when sent to a certain a
 
 ## 1. Perform (Optional):
 
-Total the _Performance Points_ of all workers on stage to determine the quality of the performance. The quality determines how many points your performance is worth. See below: TP = Total Performance VP = Victory Points
+Total the _Performance Points_ of all workers on stage to determine the quality of the performance. The quality determines how many points your performance is worth. See below:
 
     6+  TP  =>  1 VP    Mediocre
     11+ TP  =>  2 VP    Memorable
     16+ TP  =>  3 VP    Stellar
     21+ TP  =>  4 VP    Instant Classic
+
+TP = Total Performance VP = Victory Points
 
 All on stage workers are sent to the discard to "rest" after performing.
 
@@ -52,26 +54,26 @@ If a player ever needs to draw a card, and their deck is empty, that player shuf
 
 # Card Abilities:
 
-Mischeivous Gnome: When sent on stage, the active player may attack another player.
+**Mischeivous Gnome**: When sent on stage, the active player may attack one other player. Attack (1)
 
-Goblin: When sent on stage, the active player may choose to discard 1 card from hand and draw 1 from their deck.
+**Goblin**: When sent on stage, the active player may choose to discard 1 card from hand and draw 1 from their deck.
 
-Golem: When sent to labor, the active player draws 1 card from their deck - may only be sent to labor.
+**Golem**: When sent to labor, the active player draws 1 card from their deck - may only be sent to labor.
 
-Mermaid: When sent on stage, the active player may place 1 card from their discard pile on top of their deck - may only be sent on stage.
+**Mermaid**: When sent on stage, the active player may place 1 card from their discard pile on top of their deck - may only be sent on stage.
 
-Faun: This worker's performance value is increased by ever other active performer. (5 total workers on stage => Faun's performance value = 4)
+**Faun**: This worker's performance value is increased by ever other active performer. (5 total workers on stage => Faun's performance value = 4)
 
-Werewolf: When sent on stage, the active player may attack another player.
+**Werewolf**: When sent on stage, the active player may attack one other player. Attack (1)
 
-Minotaur: This card requires two attacks to be injured. These do not _refresh_ between turns.
+**Minotaur**: This card requires two attacks to be injured. These do not _refresh_ between turns.
 
-Fairy: When sent on stage, the active player may choose 1 card from their discard pile, with a hire cost less than 4, and send it on stage - the card's ability may be activated (if appropriate).
+**Fairy**: When sent on stage, the active player may choose 1 card from their discard pile, with a hire cost less than 4, and send it on stage - the card's ability may be activated (if appropriate).
 
-Sphinx: When sent on stage, the active player may draw 2 cards from their deck then discard 2 cards from hand.
+**Sphinx**: When sent on stage, the active player may draw 2 cards from their deck then discard 2 cards from hand.
 
-Phoenix: Before choosing to perform or pass in Phase 1 (Perform), a player may discard a card from hand to return a Phoenix from their discard into their hand.
+**Phoenix**: Before choosing to perform or pass in Phase 1 (Perform), a player may discard a card from hand to return a Phoenix from their discard into their hand.
 
-Unicorn: When sent on stage, the active player chooses another player to injur all of their active unicorns.
+**Unicorn**: When sent on stage, the active player chooses another player to injur all of their active unicorns.
 
 There are several other cards to play with, but I haven't had/taken the time to build them into this repo yet.
