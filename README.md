@@ -4,15 +4,15 @@ This is an original deck-building card game I designed. This repo is currently s
 
 The first one to 10 VP wins!
 
-# Basic Game Play
+## Basic Game Play
 
 Players take turns sending workers in their hands on stage to get ready for a performance or to work behind the scenes to raise funds to hire more workers.
 
 Most cards have special abilities/talents that activate when sent to a certain area. A list of those will be described below.
 
-# Turn Structure
+## Turn Structure
 
-## 1. Perform (Optional):
+### 1. Perform (Optional):
 
 Total the _Performance Points_ of all workers on stage to determine the quality of the performance. The quality determines how many points your performance is worth. See below:
 
@@ -25,7 +25,7 @@ TP = Total Performance VP = Victory Points
 
 All on stage workers are sent to the discard to "rest" after performing.
 
-## 2. Send On Stage or to Labor:
+### 2. Send On Stage or to Labor:
 
 Players play cards from their hands one at a time and activate the abilities/bonuses that apply.
 
@@ -38,13 +38,13 @@ When a card attacks, it does mischeivous things to another team's on stage worke
 
 For each **Attack** on a card, the active player chooses another player. Each _attacked_ player much choose one of their workers on stage and _injur_ it by moving it to the discard. The Attacker chooses the player to attack, and the Attackee chooses which specific worker is injured.
 
-## 3. Hire Additional Workers:
+### 3. Hire Additional Workers:
 
 Total the _Labor Points_ of the workers sent to labor this turn. This may be used to hire additional workers from the 10 available types.
 
 Players may hire multiple workers in the same turn (as long as they can afford them), but they may not hire multiple of the same card in the same turn.
 
-## 4. End Turn/Cleanup Phase:
+### 4. End Turn/Cleanup Phase:
 
 All workers and new hires from the turn are sent to the discard pile. **On Stage workers remain until injured or after they Perform**
 
@@ -52,7 +52,7 @@ Any remaining cards in the active player's hand are discarded, and 5 new cards a
 
 If a player ever needs to draw a card, and their deck is empty, that player shuffles their discard pile to make a new deck and draws from it.
 
-# Card Abilities:
+## Card Abilities:
 
 **Mischeivous Gnome**: When sent on stage, the active player may attack one other player. Attack (1)
 
